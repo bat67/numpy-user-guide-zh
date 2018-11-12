@@ -1,6 +1,6 @@
 <!-- TOC -->
 
-- [安装 NumPy](#%E5%AE%89%E8%A3%85-numpy)
+- [安装 NumPy](#安装-numpy)
 
 <!-- /TOC -->
 # 安装 NumPy
