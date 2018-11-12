@@ -11,8 +11,7 @@
 
 > 原文：[Data types](http://docs.scipy.org/doc/numpy-dev/user/basics.types.html)
 
-> 另见：
-[数据类型对象](http://docs.scipy.org/doc/numpy-dev/reference/arrays.dtypes.html#arrays-dtypes)
+> 另见：[数据类型对象](http://docs.scipy.org/doc/numpy-dev/reference/arrays.dtypes.html#arrays-dtypes)
 
 ## 数组类型和类型之间的转换
 

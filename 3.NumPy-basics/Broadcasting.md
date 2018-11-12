@@ -11,7 +11,7 @@
 
 > 原文：[Broadcasting](https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 
-> 另见：[`numpy.broadcast`]()
+> 另见：[numpy.broadcast](https://docs.scipy.org/doc/numpy/reference/generated/numpy.broadcast.html#numpy.broadcast)
 
 术语广播描述了NumPy在算术运算时如何处理不同形状的数组。 在某些条件下，较小的数组“广播”成较大的数组以便有相同的形状。 广播提供了一种矢量化操作数组的方法，这样可以在C而不是Python中进行循环。 它可以在不制作不必要的数据副本的情况下实现这一点，并且通常可以实现高效 然而，有些情况下广播是一个坏主意，因为它会导致内存使用效率低下，从而减慢计算速度。
 
