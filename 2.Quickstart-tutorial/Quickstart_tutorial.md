@@ -1,39 +1,39 @@
 <!-- TOC -->
 
-- [快速开始](#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)
-    - [先决条件](#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6)
-    - [基础篇](#%E5%9F%BA%E7%A1%80%E7%AF%87)
-        - [一个例子\[1\]\(在python的交互环境或ipython中\)](#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%901%E5%9C%A8python%E7%9A%84%E4%BA%A4%E4%BA%92%E7%8E%AF%E5%A2%83%E6%88%96ipython%E4%B8%AD)
-        - [创建数组](#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84)
-        - [打印数组](#%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84)
-        - [基本运算](#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97)
-        - [通用函数(ufunc)](#%E9%80%9A%E7%94%A8%E5%87%BD%E6%95%B0ufunc)
-        - [索引，切片和迭代](#%E7%B4%A2%E5%BC%95%EF%BC%8C%E5%88%87%E7%89%87%E5%92%8C%E8%BF%AD%E4%BB%A3)
-    - [形状操作](#%E5%BD%A2%E7%8A%B6%E6%93%8D%E4%BD%9C)
-        - [更改数组的形状](#%E6%9B%B4%E6%94%B9%E6%95%B0%E7%BB%84%E7%9A%84%E5%BD%A2%E7%8A%B6)
-        - [组合(stack)不同的数组](#%E7%BB%84%E5%90%88stack%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E7%BB%84)
-        - [将一个数组分割(split)成几个小数组](#%E5%B0%86%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%89%B2split%E6%88%90%E5%87%A0%E4%B8%AA%E5%B0%8F%E6%95%B0%E7%BB%84)
-    - [复制和视图](#%E5%A4%8D%E5%88%B6%E5%92%8C%E8%A7%86%E5%9B%BE)
-        - [完全不拷贝](#%E5%AE%8C%E5%85%A8%E4%B8%8D%E6%8B%B7%E8%B4%9D)
-        - [视图(view)和浅复制](#%E8%A7%86%E5%9B%BEview%E5%92%8C%E6%B5%85%E5%A4%8D%E5%88%B6)
-        - [深复制](#%E6%B7%B1%E5%A4%8D%E5%88%B6)
-        - [函数和方法(method)总览](#%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95method%E6%80%BB%E8%A7%88)
-    - [进阶](#%E8%BF%9B%E9%98%B6)
-        - [广播法则(rule)](#%E5%B9%BF%E6%92%AD%E6%B3%95%E5%88%99rule)
-    - [花哨的索引和索引技巧](#%E8%8A%B1%E5%93%A8%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E7%B4%A2%E5%BC%95%E6%8A%80%E5%B7%A7)
-        - [通过数组索引](#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95)
-        - [通过布尔数组索引](#%E9%80%9A%E8%BF%87%E5%B8%83%E5%B0%94%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95)
-        - [ix_()函数](#ix%E5%87%BD%E6%95%B0)
-        - [用字符串索引](#%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B4%A2%E5%BC%95)
-    - [线性代数](#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0)
-        - [简单数组运算](#%E7%AE%80%E5%8D%95%E6%95%B0%E7%BB%84%E8%BF%90%E7%AE%97)
-        - [矩阵类](#%E7%9F%A9%E9%98%B5%E7%B1%BB)
-        - [索引：比较矩阵和二维数组](#%E7%B4%A2%E5%BC%95%EF%BC%9A%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5%E5%92%8C%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84)
-    - [技巧和提示](#%E6%8A%80%E5%B7%A7%E5%92%8C%E6%8F%90%E7%A4%BA)
-        - [“自动”改变形状](#%E2%80%9C%E8%87%AA%E5%8A%A8%E2%80%9D%E6%94%B9%E5%8F%98%E5%BD%A2%E7%8A%B6)
-        - [向量组合(stacking)](#%E5%90%91%E9%87%8F%E7%BB%84%E5%90%88stacking)
-        - [直方图(histogram)](#%E7%9B%B4%E6%96%B9%E5%9B%BEhistogram)
-    - [扩展阅读](#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB)
+- [快速开始](#快速开始)
+    - [先决条件](#先决条件)
+    - [基础篇](#基础篇)
+        - [一个例子\[1\]\(在python的交互环境或ipython中\)](#一个例子\1\\在python的交互环境或ipython中\)
+        - [创建数组](#创建数组)
+        - [打印数组](#打印数组)
+        - [基本运算](#基本运算)
+        - [通用函数(ufunc)](#通用函数ufunc)
+        - [索引，切片和迭代](#索引切片和迭代)
+    - [形状操作](#形状操作)
+        - [更改数组的形状](#更改数组的形状)
+        - [组合(stack)不同的数组](#组合stack不同的数组)
+        - [将一个数组分割(split)成几个小数组](#将一个数组分割split成几个小数组)
+    - [复制和视图](#复制和视图)
+        - [完全不拷贝](#完全不拷贝)
+        - [视图(view)和浅复制](#视图view和浅复制)
+        - [深复制](#深复制)
+        - [函数和方法(method)总览](#函数和方法method总览)
+    - [进阶](#进阶)
+        - [广播法则(rule)](#广播法则rule)
+    - [花哨的索引和索引技巧](#花哨的索引和索引技巧)
+        - [通过数组索引](#通过数组索引)
+        - [通过布尔数组索引](#通过布尔数组索引)
+        - [ix_()函数](#ix_函数)
+        - [用字符串索引](#用字符串索引)
+    - [线性代数](#线性代数)
+        - [简单数组运算](#简单数组运算)
+        - [矩阵类](#矩阵类)
+        - [索引：比较矩阵和二维数组](#索引比较矩阵和二维数组)
+    - [技巧和提示](#技巧和提示)
+        - [“自动”改变形状](#自动改变形状)
+        - [向量组合(stacking)](#向量组合stacking)
+        - [直方图(histogram)](#直方图histogram)
+    - [扩展阅读](#扩展阅读)
 
 <!-- /TOC -->
 # 快速开始
@@ -400,11 +400,15 @@ array([ 2.,  0.,  6.])
 
 ```
 
-更多函数all, alltrue, any, apply along axis, argmax, argmin, argsort, average, bincount, ceil, clip, conj, conjugate, corrcoef, cov, cross, cumprod, cumsum, diff, dot, floor, inner, inv, lexsort, max, maximum, mean, median, min, minimum, nonzero, outer, prod, re, round, sometrue, sort, std, sum, trace, transpose, var, vdot, vectorize, where 参见:[NumPy示例](http://scipy.org/Numpy_Example_List)
+更多函数
+``` python
+all, alltrue, any, apply along axis, argmax, argmin, argsort, average, bincount, ceil, clip, conj, conjugate, corrcoef, cov, cross, cumprod, cumsum, diff, dot, floor, inner, inv, lexsort, max, maximum, mean, median, min, minimum, nonzero, outer, prod, re, round, sometrue, sort, std, sum, trace, transpose, var, vdot, vectorize, where 
+```
+参见:[NumPy示例](http://scipy.org/Numpy_Example_List)
 
 ### 索引，切片和迭代
 
-_一维_数组可以被索引、切片和迭代，就像[列表](http://docs.python.org/tutorial/introduction.html#SECTION005140000000000000000)和其它Python序列。
+**一维**数组可以被索引、切片和迭代，就像[列表](http://docs.python.org/tutorial/introduction.html#SECTION005140000000000000000)和其它Python序列。
 
 ```python
 >>> a = arange(10)**3
@@ -426,7 +430,7 @@ nan 1.0 nan 3.0 nan 5.0 6.0 7.0 8.0 9.0
 
 ```
 
-_多维_数组可以每个轴有一个索引。这些索引由一个逗号分割的元组给出。
+**多维**数组可以每个轴有一个索引。这些索引由一个逗号分割的元组给出。
 
 ```python
 >>> def f(x,y):
@@ -461,7 +465,7 @@ array([40, 41, 42, 43])
 
 `b[i]`中括号中的表达式被当作`i`和一系列`:`，来代表剩下的轴。NumPy也允许你使用“点”像`b[i,...]`。
 
-_点_(…)代表许多产生一个完整的索引元组必要的分号。如果x是秩为5的数组(即它有5个轴)，那么:
+**点**( `…` )代表许多产生一个完整的索引元组必要的分号。如果x是秩为5的数组(即它有5个轴)，那么:
 
 -   x[1,2,…] 等同于 x[1,2,:,:,:],
 -   x[…,3] 等同于 x[:,:,:,:,3]
@@ -484,7 +488,7 @@ array([[  2,  13],
 ```
 
 
-_迭代_多维数组是就第一个轴而言的:\[2\]\(0轴\)
+**迭代**多维数组是就第一个轴而言的:
 
 ```python
 >>> for row in b:
@@ -739,58 +743,58 @@ array([[   0,   10,   10,    3],
 
 ### 函数和方法(method)总览
 
-这是个NumPy函数和方法分类排列目录。这些名字链接到[NumPy示例](http://scipy.org/Numpy_Example_List),你可以看到这些函数起作用。\[5\]\(0轴\)
+这是个NumPy函数和方法分类排列目录。这些名字链接到[NumPy示例](http://scipy.org/Numpy_Example_List),你可以看到这些函数起作用。
 
-_创建数组_
+**创建数组**
 
 ```python
 arange, array, copy, empty, empty_like, eye, fromfile, fromfunction, identity, linspace, logspace, mgrid, ogrid, ones, ones_like, r , zeros, zeros_like
 
 ```
 
-_转化_
+**转化**
 
 ```python
 astype, atleast 1d, atleast 2d, atleast 3d, mat
 
 ```
 
-_操作_
+**操作处理**
 
 ```python
 array split, column stack, concatenate, diagonal, dsplit, dstack, hsplit, hstack, item, newaxis, ravel, repeat, reshape, resize, squeeze, swapaxes, take, transpose, vsplit, vstack
 
 ```
 
-_询问_
+**询问查询**
 
 ```python
 all, any, nonzero, where
 
 ```
 
-_排序_
+**排序**
 
 ```python
 argmax, argmin, argsort, max, min, ptp, searchsorted, sort
 
 ```
 
-_运算_
+**运算**
 
 ```python
 choose, compress, cumprod, cumsum, inner, fill, imag, prod, put, putmask, real, sum
 
 ```
 
-_基本统计_
+**基本统计**
 
 ```python
 cov, mean, std, var
 
 ```
 
-_基本线性代数_
+**基本线性代数**
 
 ```python
 cross, dot, outer, svd, vdot
@@ -828,7 +832,7 @@ array([[ 9, 16],
 
 ```
 
-当被索引数组a是多维的时，每一个唯一的索引数列指向a的第一维\[5\]\(0轴\)。以下示例通过将图片标签用调色版转换成色彩图像展示了这种行为。
+当被索引数组a是多维的时，每一个唯一的索引数列指向a的第一维。以下示例通过将图片标签用调色版转换成色彩图像展示了这种行为。
 
 ```python
 >>> palette = array( [ [0,0,0],                # black
@@ -1217,7 +1221,7 @@ matrix([[-3.],
 
 注意NumPy中数组和矩阵有些重要的区别。NumPy提供了两个基本的对象：一个N维数组对象和一个通用函数对象。其它对象都是建构在它们之上的。特别的，矩阵是继承自NumPy数组对象的二维数组对象。对数组和矩阵，索引都必须包含合适的一个或多个这些组合：整数标量、省略号(ellipses)、整数列表;布尔值，整数或布尔值构成的元组，和一个一维整数或布尔值数组。矩阵可以被用作矩阵的索引，但是通常需要数组、列表或者其它形式来完成这个任务。
 
-像平常在Python中一样，索引是从0开始的。传统上我们用矩形的行和列表示一个二维数组或矩阵，其中沿着0轴的方向被穿过的称作行，沿着1轴的方向被穿过的是列。\[9\]\(水平是1轴，垂直是0轴。\)
+像平常在Python中一样，索引是从0开始的。传统上我们用矩形的行和列表示一个二维数组或矩阵，其中沿着0轴的方向被穿过的称作行，沿着1轴的方向被穿过的是列。(水平是1轴，垂直是0轴。)
 
 让我们创建数组和矩阵用来切片：
 
@@ -1270,7 +1274,7 @@ array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
 
 ```
 
-注意最后两个结果的不同。对二维数组使用一个冒号产生一个一维数组，然而矩阵产生了一个二维矩阵。\[10\]\(`type(M[:,1])`和`type(A[:,1])`你可以看到是这样。\)例如，一个`M[2,:]`切片产生了一个形状为(1,4)的矩阵，相比之下，一个数组的切片总是产生一个最低可能维度\[11\]\(什么叫尽可能低的维度？不懂。\)的数组。例如，如果C是一个三维数组，`C[...,1]`产生一个二维的数组而`C[1,:,1]`产生一个一维数组。从这时开始，如果相应的矩阵切片结果是相同的话，我们将只展示数组切片的结果。
+注意最后两个结果的不同。对二维数组使用一个冒号产生一个一维数组，然而矩阵产生了一个二维矩阵。(`type(M[:,1])`和`type(A[:,1])`你可以看到是这样。\)例如，一个`M[2,:]`切片产生了一个形状为(1,4)的矩阵，相比之下，一个数组的切片总是产生一个最低可能维度的数组。例如，如果C是一个三维数组，`C[...,1]`产生一个二维的数组而`C[1,:,1]`产生一个一维数组。从这时开始，如果相应的矩阵切片结果是相同的话，我们将只展示数组切片的结果。
 
 假如我们想要一个数组的第一列和第三列，一种方法是使用列表切片：
 
@@ -1342,7 +1346,7 @@ matrix([[2, 3]])
 
 ```
 
-这个过程的问题是用“矩阵切片”来切片产生一个矩阵\[12\]\(用矩阵切片\)，但是矩阵有个方便的`A`属性，它的值是数组呈现的。所以我们仅仅做以下替代：
+这个过程的问题是用“矩阵切片”来切片产生一个矩阵(用矩阵切片\)，但是矩阵有个方便的`A`属性，它的值是数组呈现的。所以我们仅仅做以下替代：
 
 ```python
 >>> M[:,M.A[0,:]>1]
@@ -1447,8 +1451,8 @@ pylab.show()
 
 ## 扩展阅读
 
--   The [Python tutorial](http://docs.python.org/tut/tut.html)
--   The [NumPy Reference](http://docs.scipy.org/doc/numpy-dev/reference/index.html#reference)
--   The [SciPy Tutorial](http://scipy.org/SciPy_Tutorial)
--   [SciPy Lecture Notes](http://www.scipy-lectures.org/)
--   A [matlab, R, IDL, NumPy/SciPy dictionary](http://mathesaurus.sf.net/)
+- [The Python tutorial](http://docs.python.org/tut/tut.html)
+- [The NumPy Reference](http://docs.scipy.org/doc/numpy-dev/reference/index.html#reference)
+- [The SciPy Tutorial](http://scipy.org/SciPy_Tutorial)
+- [SciPy Lecture Notes](http://www.scipy-lectures.org/)
+- [ A MATLAB, R, IDL, NumPy/SciPy dictionary](http://mathesaurus.sf.net/)
