@@ -14,10 +14,14 @@
   * [字节交换](3.NumPy-basics/Byte-swapping.md)
   * [结构化数组](3.NumPy-basics/Structured_arrays.md)
   * [子类化ndarray](3.NumPy-basics/Subclassing_ndarray.md)
-* [杂项](4.Miscellaneous/README.md)
-* [给Matlab用户的NumPy指南](5.NumPy-for-Matlab-users/README.md)
-* [从源码构建](6.Building-from-source/README.md)
+* [杂项](4.Miscellaneous/Miscellaneous.md)
+* [给Matlab用户的NumPy指南](5.NumPy-for-Matlab-users/NumPy_for_Matlab _users.md)
+* [从源码构建](6.Building-from-source/Building_from_source.md)
 * [使用NumPy的C语言接口](7.Using-NumPy-C-API/README.md)
+    * [怎样拓展NumPy](7.Using-NumPy-C-API/How_to_extend_NumPy.md)
+    * [将Python看成一种“胶水”](7.Using-NumPy-C-API/Using_Python_as_glue.md)
+    * [写自己的通用函数（ufunc）](7.Using-NumPy-C-API/Writing_your_own_ufunc.md)
+    * [基础知识之外](7.Using-NumPy-C-API/Beyond_the_Basics.md) 
 
 
 
