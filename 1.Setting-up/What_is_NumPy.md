@@ -1,8 +1,9 @@
 <!-- TOC -->
 
-- [NumPy 是什么？](#numpy-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F)
+- [NumPy 是什么？](#numpy-%E6%98%AF%E4%BB%80%E4%B9%88)
 
 <!-- /TOC -->
+
 # NumPy 是什么？
 
 > 原文：[What is NumPy?](http://docs.scipy.org/doc/numpy-dev/user/whatisnumpy.html)
@@ -26,7 +27,7 @@ for i in range(len(a)):
 
 这就产生了正确的答案，但如果 a 和 b 都含有数以百万计的数字，我们将为Python的低效循环付出代价。我们可以这样以C语言编写代码来完成同样的任务（为清楚起见我们忽略变量声明和初始化、内存分配等）：
 
-```python
+```C
 for (i = 0; i < rows; i++): {
   c[i] = a[i]*b[i];
 }
@@ -34,7 +35,7 @@ for (i = 0; i < rows; i++): {
 
 这节省了所有涉及解释Python代码和操作Python对象的开销，但没有了使用Python编码的优势。此外，编码所需的工作量随数据维数的增加而增加。例如对于一个二维数组，C代码（像上面一样简写）会扩展为：
 
-```python
+```C
 for (i = 0; i < rows; i++): {
   for (j = 0; j < columns; j++): {
     c[i][j] = a[i][j]*b[i][j];
