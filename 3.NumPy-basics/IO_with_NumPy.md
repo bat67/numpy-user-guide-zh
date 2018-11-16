@@ -1,4 +1,3 @@
-<!-- TOC -->
 
 - [NumPy I/O操作](#numpy-io%E6%93%8D%E4%BD%9C)
       - [使用genfromtxt导入数据](#%E4%BD%BF%E7%94%A8genfromtxt%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE)
