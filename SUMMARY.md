@@ -15,7 +15,7 @@
   * [结构化数组](3.NumPy-basics/Structured_arrays.md)
   * [子类化ndarray](3.NumPy-basics/Subclassing_ndarray.md)
 * [杂项](4.Miscellaneous/Miscellaneous.md)
-* [给Matlab用户的NumPy指南](5.NumPy-for-Matlab-users/NumPy_for_Matlab _users.md)
+* [给Matlab用户的NumPy指南](5.NumPy-for-Matlab-users/NumPy_for_Matlab_users.md)
 * [从源码构建](6.Building-from-source/Building_from_source.md)
 * [使用NumPy的C语言接口](7.Using-NumPy-C-API/README.md)
     * [怎样拓展NumPy](7.Using-NumPy-C-API/How_to_extend_NumPy.md)
