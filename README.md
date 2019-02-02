@@ -1,6 +1,8 @@
 # NumPy 用户指南 (NumPy User Guide翻译)
 
-> 此手册旨在初步介绍NumPy，并说明如何安装并使用好其最重要的功能。对于其中包含的函数和类的详细参考文档，请看[NumPy参考](https://docs.scipy.org/doc/numpy/user/index.html)。
+> * 此手册旨在初步介绍NumPy，并说明如何安装并使用好其最重要的功能。对于其中包含的函数和类的详细参考文档，请看[NumPy参考](https://docs.scipy.org/doc/numpy/user/index.html)。
+>
+> * 版权信息，见 [license.md](license.md)
 
 * [文档简介](README.md)
 * [安装](1.Setting-up/README.md)
@@ -26,10 +28,5 @@
     * [基础知识之外](7.Using-NumPy-C-API/Beyond_the_Basics.md) 
 
 
->[版权信息](license.md)
->
->除非额外说明，本仓库的所有公开文档均遵循 [署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)](https://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 许可协议。任何人都可以自由地分享、修改本作品，但必须遵循如下条件：
->
->* 署名：必须提到原作者，提供指向此许可协议的链接，表明是否有做修改
->* 非商业性使用：不能对本作品进行任何形式的商业性使用
->* 相同方式共享：若对本作品进行了修改，必须以相同的许可协议共享
+
+
