@@ -174,7 +174,7 @@ linspace(1,3,4) | linspace(1,3,4) | 创建4个等间距的样本，介于1和3�
 [x,y]=meshgrid(0:8,0:5) | mgrid[0:9.,0:6.] 或 meshgrid(r_[0:9.],r_[0:6.] | 两个2维数组：一个是x值，另一个是y值。
  \- | ogrid[0:9.,0:6.] 或 ix_(r_[0:9.],r_[0:6.] | 最好的方法是在一个网格上执行函数。
 [x,y]=meshgrid([1,2,4],[2,4,5]) | meshgrid([1,2,4],[2,4,5]) |  - 
- - | ix_([1,2,4],[2,4,5]) | 最好的方法是在网格上执行函数。
+ \- | ix_([1,2,4],[2,4,5]) | 最好的方法是在网格上执行函数。
 repmat(a, m, n) | tile(a, (m, n)) | 通过n份a的拷贝创建m。
 [a b] | concatenate((a,b),1) 或 hstack((a,b)) 或 column_stack((a,b)) or c_[a,b] | 连接a和b的列。
 [a; b] | concatenate((a,b)) 或 vstack((a,b)) 或 r_[a,b] | 连接a和b的行。
@@ -222,8 +222,8 @@ squeeze(a) | a.squeeze() | -
 **逻辑运算**: & 或者 | 在NumPy中是按位的 AND/OR，而在Matlab中 & 和 | 是逻辑 AND/OR。对于任何有丰富编程经验的人来说，这一区别应该是显而易见的。这两种方法表面上看起来是一样的，但也有重要的区别。如果你要使用Matlab的& 或 | 操作符，则应该使用NumPy函数的logicaland/logicalor。Matlab 的运算符 与 NumPy 的 & 和 | 运算符的显著区别是：
 
 非逻辑{0,1}输入：NumPy的输出是输入的按位AND。 Matlab将任何非零值视为1并返回逻辑AND。 例如，NumPy中的（3&4）是0，而在Matlab中，3和4都被认为是逻辑真，而（3&4）返回1。
-优先级：NumPy的＆运算符优先于<和>之类的逻辑运算符; Matlab是相反的。
-如果你知道你有布尔参数，你可以使用NumPy的按位运算符，但要注意括号，如：z =（x> 1）＆（x <2）。 缺少NumPy运算符形式的logical_and和logical_or是Python设计的一个不幸结果。
+优先级：NumPy的&运算符优先于<和>之类的逻辑运算符; Matlab是相反的。
+如果你知道你有布尔参数，你可以使用NumPy的按位运算符，但要注意括号，如：z =（x> 1）&（x <2）。 缺少NumPy运算符形式的logical_and和logical_or是Python设计的一个不幸结果。
 
 **重塑与线性索引**: Matlab总是允许使用标量或线性索引访问多维数组，而NumPy则不然。 线性索引在Matlab程序中很常见，例如：矩阵上的find()函数就会返回这在类型，而NumPy的查找行为则不同。 在转换Matlab代码时，可能需要首先将矩阵重塑为线性序列，执行一些索引操作然后再重塑。 由于重塑（通常）会在同一存储上生成视图，因此应该可以相当有效地执行此操作。 请注意，在NumPy中重塑使用的扫描顺序默认为'C'顺序，而Matlab使用Fortran顺序。 如果你只是简单地转换为线性序列，那么这无关紧要。 但是如果要从依赖于扫描顺序的Matlab代码转换重构，那么这个Matlab代码：z = reshape(x, 3,4); 应该在NumPy中变成z = x.reshape(3,4, order ='F').copy()。
 
