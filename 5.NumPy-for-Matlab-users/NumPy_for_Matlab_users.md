@@ -6,11 +6,10 @@
   - [“array” 还是 “matrix”? 我应该选谁?](#array-还是-matrix-我应该选谁)
     - [简要的回答](#简要的回答)
     - [详细的回答](#详细的回答)
-  - [使用Matrix的用户的福音](#使用matrix的用户的福音)
   - [MATLAB和NumPy粗略的功能对应表](#matlab和numpy粗略的功能对应表)
     - [一般功能的对应表](#一般功能的对应表)
     - [线性代数功能对应表](#线性代数功能对应表)
-  - [备注](#备注)
+  - [注释](#注释)
   - [自定义环境](#自定义环境)
   - [链接](#链接)
 
@@ -95,25 +94,11 @@ NumPy包含`array`类和`Matrix`类。`array`类旨在成为用于多种数值�
 
 因此，使用数组要明智得多。事实上，我们打算最终弃用矩阵类型。
 
-## 使用Matrix的用户的福音
-
-NumPy有一些特性，可以方便地使用``matrix``类型，这有望使Matlab的用户转化过来更为容易。
-
-- 新增了一个``matlib``模块，该模块包含常用数组构造函数的矩阵版本，如one()、zeros()、empty()、view()、rand()、repmat()等。通常，这些函数返回数组，但matlib版本返回矩阵对象。
-- ``mat`` 已被更改为``asmatrix``的同义词，而不是矩阵，从而使其成为将数组转换为矩阵而不复制数据的简洁方法。
-- 一些顶级的函数已被删除。例如，``numpy.rand()``现在需要作为``numpy.random.rand()``访问。或者使用``matlib``模块中的``rand()``。但是“numpythonic”方式是使用``numpy.random.random()``，它为元组数据类型作为shape（形状），就像其他numpy函数一样。
 
 ## MATLAB和NumPy粗略的功能对应表
 
-下表粗略的反应了一些常见MATLAB表达式的大致对应关系。**但这些并不完全等同**，而是作为一种指引，指引读者一个正确的反向。有关更多详细信息，请参阅NumPy函数的内置文档。
+下表粗略的反应了一些常见MATLAB表达式的大致对应关系。这些并不是完全等价的，而是应该作为提示来引导您走向正确的方向。有关更多详细信息，请参阅NumPy函数的内置文档。
 
-在编写以数组或矩阵作为参数的函数时，需要注意一点，就算如果你期望函数返回一个 ``array``， 传入的参数却是一个 ``matrix``，或反之亦然，那么 ``*`` (乘法运算符) 会给你带来意想不到的惊喜。它可以在数组和矩阵之间来回转换。
-
-- ``asarray``: 总是返回一个 ``array`` 类型的对象。
-- ``asmatrix`` 或 ``mat``: 总是返回一个  ``matrix`` 类型的对象。
-- ``asanyarray``: 始终返回数组对象或数组对象派生的子类，具体取决于传入的类型。例如，如果传入一个``matrix``，它将返回一个``matrix``。
-
-这些函数都接受数组和矩阵(除了别的类型哈，比如Python的list类型之类的)，因此在编写应该接受任何类似数组的对象的函数时很有用。
 
 在下表中，假设你已经在Python中执行了以下命令：
 
@@ -122,21 +107,21 @@ from numpy import *
 import scipy.linalg
 ```
 
-另外如果下表中的``注释``这一列的内容是和``matrix``有关的话，那么参数一定是二维的形式。
+另外如果下表中的`注释`这一列的内容是和`matrix`有关的话，那么参数一定是二维的形式。
 
 ### 一般功能的对应表
 
 MATLAB | NumPy | 注释
 ---|---|---
-``help func`` | ``info(func)`` 或 ``help(func)`` 或 ``func?`` (在 Ipython 中) | 获得函数func的帮助。
-``which func`` | see note HELP（译者注：在里的原链接已经失效。） | 找出func定义的位置。
-``type func`` | ``source(func)`` 或 ``func??`` (在 Ipython 中) | 打印func的源代码(如果不是原生函数的话)。
-``a && b`` | ``a and b`` | 短路逻辑 AND 运算符 (Python 原生运算符); 仅限标量参数。
-``a \|\| b`` | ``a or b`` | 短路逻辑 OR 运算符 (Python 原生运算符); 仅限标量参数。
-``1*i, 1*j, 1i, 1j`` | ``1j`` | 复数。
-``eps`` | ``np.spacing(1)`` | 数字1和最近的浮点数之间的距离。
-``ode45`` | ``scipy.integrate.solve_ivp(f)`` | 将ODE与Runge-Kutta 4,5整合在一起。
-``ode15s`` | ``scipy.integrate.solve_ivp(f, method='BDF')`` | 用BDF方法整合ODE。
+help func | info(func) 或 help(func) 或 func? (在 Ipython 中) | 获得函数func的帮助。
+which func | see note HELP（译者注：在里的原链接已经失效。） | 找出func定义的位置。
+type func | source(func) 或 func?? (在 Ipython 中) | 打印func的源代码(如果不是原生函数的话)。
+a && b | a and b | 短路逻辑 AND 运算符 (Python 原生运算符); 仅限标量参数。
+a \|\| b | a or b | 短路逻辑 OR 运算符 (Python 原生运算符); 仅限标量参数。
+1\*i, 1\*j, 1i, 1j | 1j | 复数。
+eps | np.spacing(1) | 数字1和最近的浮点数之间的距离。
+ode45 | scipy.integrate.solve_ivp(f) | 将ODE与Runge-Kutta 4,5整合在一起。
+ode15s | scipy.integrate.solve_ivp(f, method='BDF') | 用BDF方法整合ODE。
 
 ### 线性代数功能对应表
 
@@ -175,8 +160,8 @@ a(:) = 3 | a[:] = 3 | 将所有值设置为相同的标量值
 y=x | y = x.copy() | numpy 通过拷贝引用来赋值。
 y=x(2,:) | y = x[1,:].copy() | numpy 通过拷贝引用来切片操作。
 y=x(:) | y = x.flatten() | 将数组转换为向量(请注意，这将强制拷贝)。
-1:10 | arange(1.,11.) 或 r_[1.:11.] 或 r_[1:10:10j] | 创建一个可增长的向量 (参见下面的[注释](#note)章节)
-0:9 | arange(10.) 或 r_[:10.] 或 r_[:9:10j] | 创建一个可增长的向量 (参见下面的[注释](#note)章节)
+1:10 | arange(1.,11.) 或 r_[1.:11.] 或 r_[1:10:10j] | 创建一个可增长的向量 (参见下面的[备注](#备注)章节)
+0:9 | arange(10.) 或 r_[:10.] 或 r_[:9:10j] | 创建一个可增长的向量 (参见下面的[备注](#备注)章节)
 [1:10]' | arange(1.,11.)[:, newaxis] | 创建一个列向量。
 zeros(3,4) | zeros((3,4)) | 创建一个全是0的填充的 3x4 的64位浮点类型的二维数组。
 zeros(3,4,5) | zeros((3,4,5)) | 创建一个全是0的填充的 3x4x5 的64位浮点类型的三维数组。
@@ -208,7 +193,7 @@ rank(a) | linalg.matrix_rank(a) | 二维数组或者矩阵的矩阵rank。
 a\b | 如果a是方形矩阵 linalg.solve(a,b) ，否则：linalg.lstsq(a,b)  | 对于x，x = b的解
 b/a | Solve a.T x.T = b.T instead | 对于x，x a = b的解
 [U,S,V]=svd(a) | U, S, Vh = linalg.svd(a), V = Vh.T | a数组的奇值分解
-chol(a) | linalg.cholesky(a).T | 矩阵的cholesky分解（matlab中的``chol(a)``返回一个上三角矩阵，但``linalg.cholesky(a)``返回一个下三角矩阵）
+chol(a) | linalg.cholesky(a).T | 矩阵的cholesky分解（matlab中的chol(a)返回一个上三角矩阵，但linalg.cholesky(a)返回一个下三角矩阵）
 [V,D]=eig(a) | D,V = linalg.eig(a) | a数组的特征值和特征向量
 [V,D]=eig(a,b) | V,D = np.linalg.eig(a,b) | a，b数组的特征值和特征向量
 [V,D]=eigs(a,k) | - | 找到a的k个最大特征值和特征向量
@@ -221,18 +206,18 @@ sort(a) | sort(a) or a.sort() | 对矩阵或者数组进行排序
 [b,I] = sortrows(a,i) | I = argsort(a[:,i]), b=a[I,:] | 对矩阵或数组的行进行排序
 regress(y,X) | linalg.lstsq(X,y) | 多线性回归
 decimate(x, q) | scipy.signal.resample(x, len(x)/q) | 采用低通滤波的下采样
-``unique(a)`` | ``unique(a)`` |  -
-``squeeze(a)`` | ``a.squeeze()`` | -  
+unique(a) | unique(a) |  -
+squeeze(a) | a.squeeze() | -  
 
-## 备注
+## 注释
 
-**子矩阵**: 可以使用ix_命令使用索引列表完成对子矩阵的分配。例如，对于2d阵列a，有人可能会这样做： ``ind=[1,3]; a[np.ix_(ind,ind)]+=100``.
+**子矩阵**: 可以使用ix_命令使用索引列表完成对子矩阵的分配。例如，对于2d阵列a，有人可能会这样做： `ind=[1,3]; a[np.ix_(ind,ind)]+=100`.
 
-**帮助方面**: 没有直接等同于MATLAB的``which``的命令，但是命令``help``和``source``通常会列出函数所在的文件名。Python还提供了一个检查模块(do ``import inspect``)，该模块提供了一个经常被使用到的`getfile``方法。
+**帮助方面**: 没有直接等同于MATLAB的`which`的命令，但是命令`help`和`source`通常会列出函数所在的文件名。Python还提供了一个检查模块(do `import inspect`)，该模块提供了一个经常被使用到的`getfile``方法。
 
 **索引方面**: MATLAB® 使用基于1的索引，因此序列的初始元素具有索引1。Python使用基于0的索引，因此数组的初始元素的索引为0。之所以有如此天壤之别，是因为它们各有优缺点。使用基于1的索引是和常见的人类语言用法是一致的，前者是序列的 “第一个” 元素的索引是1。而后者基于0的索引简化了索引。另见pro.dr的文本。
 
-**范围**: 在 MATLAB® 中，0:5既可以用作范围文字索引，也可以用作“片”索引(括号内)；然而，在Python中，像0:5这样的结构只能用作片索引(方括号内)。因此，创建了有点奇怪的r_Object，以允许numpy具有类似的简洁范围构造机制。请注意，r_不像函数或构造函数那样被调用，而是使用方括号进行索引，这允许在参数中使用Python的切片语法。
+**范围**: 在 MATLAB® 中，`0:5`既可以用作范围文字索引，也可以用作“片”索引(括号内)；然而，在Python中，像`0:5`这样的结构只能用作片索引(方括号内)。因此，创建了有点奇怪的`r_`对象，以允许numpy具有类似的简洁范围构造机制。请注意，`r_`不像函数或构造函数那样被调用，而是使用方括号进行索引，这允许在参数中使用Python的切片语法。
 
 **逻辑运算**: & 或者 | 在NumPy中是按位的 AND/OR，而在Matlab中 & 和 | 是逻辑 AND/OR。对于任何有丰富编程经验的人来说，这一区别应该是显而易见的。这两种方法表面上看起来是一样的，但也有重要的区别。如果你要使用Matlab的& 或 | 操作符，则应该使用NumPy函数的logicaland/logicalor。Matlab 的运算符 与 NumPy 的 & 和 | 运算符的显著区别是：
 
@@ -248,7 +233,7 @@ decimate(x, q) | scipy.signal.resample(x, len(x)/q) | 采用低通滤波的下�
 
 NumPy，或者更确切地说是Python，具有类似的功能。
 
-- 要修改Python搜索路径以包含自己模块的位置，请定义``PYTHONPATH``的环境变量。
+- 要修改Python搜索路径以包含自己模块的位置，请定义`PYTHONPATH`的环境变量。
 - 要在启动交互式Python解释器时执行特定的脚本文件，请定义“PYTHONSTARTUP”环境变量以包含启动脚本的名称。
 
 与MATLAB®不同，可以立即调用路径上的任何内容，使用Python，你需要先执行“import”语句，以使特定文件中的函数可访问。
