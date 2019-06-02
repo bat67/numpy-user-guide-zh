@@ -1,22 +1,22 @@
 <!-- TOC -->
 
 - [创建数组](#创建数组)
-    - [导言](#导言)
-    - [将Python类似数组的对象转换为NumPy数组](#将python类似数组的对象转换为numpy数组)
-    - [内置的NumPy数组创建](#内置的numpy数组创建)
-    - [从磁盘读取数组](#从磁盘读取数组)
-        - [标准二进制格式](#标准二进制格式)
-        - [普通的ASCII格式](#普通的ascii格式)
-        - [自定义二进制格式](#自定义二进制格式)
-        - [特殊库的使用](#特殊库的使用)
+  - [导言](#导言)
+  - [将Python类似数组的对象转换为NumPy数组](#将python类似数组的对象转换为numpy数组)
+  - [内置的NumPy数组创建](#内置的numpy数组创建)
+  - [从磁盘读取数组](#从磁盘读取数组)
+    - [标准二进制格式](#标准二进制格式)
+    - [普通的ASCII格式](#普通的ascii格式)
+    - [自定义二进制格式](#自定义二进制格式)
+    - [特殊库的使用](#特殊库的使用)
 
 <!-- /TOC -->
 # 创建数组
 
-> 原文：[Array creation](http://docs.scipy.org/doc/numpy-dev/user/basics.creation.html)
+> 原文：[Array creation](https://docs.scipy.org/doc/numpy/user/basics.creation.html)
 
 > 另见：
-[数组创建例程](http://docs.scipy.org/doc/numpy-dev/reference/routines.array-creation.html#routines-array-creation)
+[数组创建例程](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html#routines-array-creation)
 
 ## 导言
 
@@ -56,7 +56,7 @@ NumPy具有从无到有创建数组的内置功能：
 
 `ones(shape)` 将创建一个填充为1的数组。在其他所有方面都和`zeros`相同。
 
-`arange()`将创建有规律的增量值数组。它的几种用法请见docstring。这里给出几个例子：
+`arange()`将创建有规律的增量值数组。它的几种用法请见文档。这里给出几个例子：
 
 ```python
 >>> np.arange(10)
@@ -67,7 +67,7 @@ array([ 2., 3., 4., 5., 6., 7., 8., 9.])
 array([ 2. , 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9])
 ```
 
-请注意，关于最后一个用例，有一些使用技巧，请见`arrange`的docstring。
+请注意，关于最后一个用例，有一些使用技巧，请见`arrange`的文档。
 
 `linspace()`将以指定数量的元素创建数组，并平分开始值和结束值。例如：
 
@@ -96,15 +96,15 @@ array([[[0, 0, 0], [1, 1, 1], [2, 2, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]]])
 各个领域都有数组数据的标准格式。以下列出了用于读取和返回NumPy数组的已知Python库（也有其它的库可以读取数组并转换为NumPy数组，所以也请看一下最后一节）
 
 ```python
-HDF5: PyTables
-FITS: PyFITS
+HDF5: h5py
+FITS: Astropy
 ```
 
 一些格式不能直接读取，但是不难将其转换为类似PIL库（能够读写许多图像格式，例如jpg、png以及其它）所支持的格式。
 
 ### 普通的ASCII格式
 
-逗号分隔值文件（CSV）被广泛使用（可以被类似Excel的一些程序导入导出）。有一些在python中读取这些文件的方法，例如Python和pylab（Matplotlib的一部分）中的函数。
+逗号分隔值文件（CSV）被广泛使用（可以被类似Excel的一些程序导入导出）。有一些在python中读取这些文件的方法，例如Python和pylab（matplotlib的一部分）中的函数。
 
 更通用的ASCII文件可以使用SciPy的IO包来读取。
 
@@ -114,4 +114,6 @@ FITS: PyFITS
 
 ### 特殊库的使用
 
-有一些库可以用于生成特殊用途的数组，这样的库不可能全部列举出来。最常见的用法是使用许多数组生成函数来产生带有随机值的数组，以及使用一些生成特殊矩阵（如对角线）的功能函数。
+有一些库可以用于生成特殊用途的数组，这样的库不可能全部列举出来。最常见的用法是使用许多数组生成函数来产生带有随机值的数组，以及使用一些生成特殊矩阵（如对角矩阵）的功能函数。
+
+
