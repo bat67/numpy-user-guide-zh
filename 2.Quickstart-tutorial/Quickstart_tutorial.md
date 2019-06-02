@@ -1,44 +1,44 @@
 <!-- TOC -->
 
 - [快速开始](#快速开始)
-    - [先决条件](#先决条件)
-    - [基础篇](#基础篇)
-        - [一个例子(在python的交互环境或ipython中)](#一个例子在python的交互环境或ipython中)
-        - [创建数组](#创建数组)
-        - [打印数组](#打印数组)
-        - [基本运算](#基本运算)
-        - [通用函数(ufunc)](#通用函数ufunc)
-        - [索引，切片和迭代](#索引切片和迭代)
-    - [形状操作](#形状操作)
-        - [更改数组的形状](#更改数组的形状)
-        - [组合(stack)不同的数组](#组合stack不同的数组)
-        - [将一个数组分割(split)成几个小数组](#将一个数组分割split成几个小数组)
-    - [复制和视图](#复制和视图)
-        - [完全不拷贝](#完全不拷贝)
-        - [视图(view)和浅复制](#视图view和浅复制)
-        - [深复制](#深复制)
-        - [函数和方法(method)总览](#函数和方法method总览)
-    - [进阶](#进阶)
-        - [广播法则(rule)](#广播法则rule)
-    - [花哨的索引和索引技巧](#花哨的索引和索引技巧)
-        - [通过数组索引](#通过数组索引)
-        - [通过布尔数组索引](#通过布尔数组索引)
-        - [ix_()函数](#ix_函数)
-        - [用字符串索引](#用字符串索引)
-    - [线性代数](#线性代数)
-        - [简单数组运算](#简单数组运算)
-        - [矩阵类](#矩阵类)
-        - [索引：比较矩阵和二维数组](#索引比较矩阵和二维数组)
-    - [技巧和提示](#技巧和提示)
-        - [“自动”改变形状](#自动改变形状)
-        - [向量组合(stacking)](#向量组合stacking)
-        - [直方图(histogram)](#直方图histogram)
-    - [扩展阅读](#扩展阅读)
+  - [先决条件](#先决条件)
+  - [基础篇](#基础篇)
+    - [一个例子](#一个例子)
+    - [创建数组](#创建数组)
+    - [打印数组](#打印数组)
+    - [基本运算](#基本运算)
+    - [通用函数(ufunc)](#通用函数ufunc)
+    - [索引，切片和迭代](#索引切片和迭代)
+  - [形状操作](#形状操作)
+    - [更改数组的形状](#更改数组的形状)
+    - [组合(stack)不同的数组](#组合stack不同的数组)
+    - [将一个数组分割(split)成几个小数组](#将一个数组分割split成几个小数组)
+  - [复制和视图](#复制和视图)
+    - [完全不拷贝](#完全不拷贝)
+    - [视图(view)和浅复制](#视图view和浅复制)
+    - [深复制](#深复制)
+    - [函数和方法(method)总览](#函数和方法method总览)
+  - [进阶](#进阶)
+    - [广播法则(rule)](#广播法则rule)
+  - [花哨的索引和索引技巧](#花哨的索引和索引技巧)
+    - [通过数组索引](#通过数组索引)
+    - [通过布尔数组索引](#通过布尔数组索引)
+    - [ix_()函数](#ix_函数)
+    - [用字符串索引](#用字符串索引)
+  - [线性代数](#线性代数)
+    - [简单数组运算](#简单数组运算)
+    - [矩阵类](#矩阵类)
+    - [索引：比较矩阵和二维数组](#索引比较矩阵和二维数组)
+  - [技巧和提示](#技巧和提示)
+    - [“自动”改变形状](#自动改变形状)
+    - [向量组合(stacking)](#向量组合stacking)
+    - [直方图(histogram)](#直方图histogram)
+  - [扩展阅读](#扩展阅读)
 
 <!-- /TOC -->
 # 快速开始
 
-> 原文：[Quickstart tutorial](http://docs.scipy.org/doc/numpy-dev/user/quickstart.html)
+> 原文：[Quickstart tutorial](https://docs.scipy.org/doc/numpy/user/quickstart.html)
 
 ## 先决条件
 
@@ -67,37 +67,37 @@ NumPy的主要对象是同种元素的多维数组。这是一个所有的元素
 
 ```
 
-NumPy的数组类被称作_ndarray_。通常被称作数组。注意numpy.array和标准Python库类array.array并不相同，后者只处理一维数组和提供少量功能。更多重要ndarray对象属性有：
+NumPy的数组类被称作`ndarray`。通常被称作数组。注意`numpy.array`和标准Python库类`array.array`并不相同，后者只处理一维数组和提供少量功能。更多重要`ndarray`对象属性有：
 
 -   ndarray.ndim
 
-    数组轴的个数，在python的世界中，轴的个数被称作秩
+    数组轴（维度）的个数。
 
 -   ndarray.shape
 
-    数组的维度。这是一个指示数组在每个维度上大小的整数元组。例如一个n排m列的矩阵，它的shape属性将是(2,3),这个元组的长度显然是秩，即维度或者ndim属性
+    数组的维度。这是一个指示数组在每个维度上大小的整数元组。例如一个*n*排*m*列的矩阵，它的`shape`属性将是`(n,m)`，这个元组的长度显然是轴数ndim。
 
 -   ndarray.size
 
-    数组元素的总个数，等于shape属性中元组元素的乘积。
+    数组元素的总个数，等于`shape`属性中元组元素的乘积。
 
 -   ndarray.dtype
 
-    一个用来描述数组中元素类型的对象，可以通过创造或指定dtype使用标准Python类型。另外NumPy提供它自己的数据类型。
+    一个用来描述数组中元素类型的对象，可以通过创造或指定dtype使用标准Python类型。此外，NumPy还提供了自己的类型。如numpy.int32、numpy.int16和numpy.float64等。
 
 -   ndarray.itemsize
 
-    数组中每个元素的字节大小。例如，一个元素类型为float64的数组itemsiz属性值为8(=64/8),又如，一个元素类型为complex32的数组item属性为4(=32/8).
+    数组中每个元素的字节大小。例如，一个元素类型为`float64`的数组`itemsize`属性值为8(=64/8),又如，一个元素类型为`complex32`的数组`itemsize`属性为4(=32/8)。它等价于`ndarray.dtype.itemsize`。
 
 -   ndarray.data
 
     包含实际数组元素的缓冲区，通常我们不需要使用这个属性，因为我们总是通过索引来使用数组中的元素。
 
-### 一个例子(在python的交互环境或ipython中)
+### 一个例子
 
 ```python
->>> from numpy  import *
->>> a = arange(15).reshape(3, 5)
+>>> import numpy as np
+>>> a = np.arange(15).reshape(3, 5)
 >>> a
 array([[ 0,  1,  2,  3,  4],
        [ 5,  6,  7,  8,  9],
@@ -107,18 +107,18 @@ array([[ 0,  1,  2,  3,  4],
 >>> a.ndim
 2
 >>> a.dtype.name
-'int32'
+'int64'
 >>> a.itemsize
-4
+8
 >>> a.size
 15
 >>> type(a)
-numpy.ndarray
->>> b = array([6, 7, 8])
+<type 'numpy.ndarray'>
+>>> b = np.array([6, 7, 8])
 >>> b
 array([6, 7, 8])
 >>> type(b)
-numpy.ndarray
+<type 'numpy.ndarray'>
 
 ```
 
@@ -145,7 +145,6 @@ dtype('float64')
 
 ```python
 >>> a = array(1,2,3,4)    # WRONG
-
 >>> a = array([1,2,3,4])  # RIGHT
 
 ```
@@ -172,7 +171,7 @@ array([[ 1.+0.j,  2.+0.j],
 
 通常，数组的元素开始都是未知的，但是它的大小已知。因此，NumPy提供了一些使用占位符创建数组的函数。这最小化了扩展数组的需要和高昂的运算代价。
 
-函数`function`创建一个全是0的数组，函数`ones`创建一个全1的数组，函数`empty`创建一个内容随机并且依赖与内存状态的数组。默认创建的数组类型(dtype)都是float64。
+函数`function`创建一个全是0的数组，函数`ones`创建一个全1的数组，函数`empty`创建一个内容随机并且依赖与内存状态的数组。默认创建的数组类型(dtype)都是`float64`。
 
 ```python
 >>> zeros( (3,4) )
@@ -204,7 +203,8 @@ array([ 0. ,  0.3,  0.6,  0.9,  1.2,  1.5,  1.8])
 
 当`arange`使用浮点数参数时，由于有限的浮点数精度，通常无法预测获得的元素个数。因此，最好使用函数`linspace`去接收我们想要的元素个数来代替用range来指定步长。
 
-其它函数array, zeros, zeros_like, ones, ones_like, empty, empty_like, arange, linspace, rand, randn, fromfunction, fromfile参考：[NumPy示例](http://scipy.org/Numpy_Example_List)
+更多参考：
+array, zeros, zeros_like, ones, ones_like, empty, empty_like, arange, linspace, numpy.random.rand, numpy.random.randn, fromfunction, fromfile
 
 ### 打印数组
 
@@ -240,7 +240,7 @@ array([ 0. ,  0.3,  0.6,  0.9,  1.2,  1.5,  1.8])
 
 ```
 
-查看形状操作一节获得有关reshape的更多细节
+查看[形状操作](## 形状操作)一节获得有关`reshape`的更多细节
 
 如果一个数组用来打印太大了，NumPy自动省略中间部分而只打印角落
 
@@ -259,7 +259,7 @@ array([ 0. ,  0.3,  0.6,  0.9,  1.2,  1.5,  1.8])
 
 ```
 
-禁用NumPy的这种行为并强制打印整个数组，你可以设置printoptions参数来更改打印选项。
+禁用NumPy的这种行为并强制打印整个数组，你可以设置`set_printoptions`参数来更改打印选项。
 
 ```python
 >>> set_printoptions(threshold='nan')
@@ -287,7 +287,7 @@ array([True, True, False, False], dtype=bool)
 
 ```
 
-不像许多矩阵语言，NumPy中的乘法运算符`*`指示按元素计算，矩阵乘法可以使用`dot`函数或创建矩阵对象实现(参见教程中的矩阵章节)
+不像许多矩阵语言，NumPy中的乘法运算符`*`指示按元素计算，矩阵乘法可以可以使用`@`运算符(在python中>=3.5)或使用`dot`函数或创建矩阵对象实现:
 
 ```python
 >>> A = array( [[1,1],
@@ -306,24 +306,24 @@ array([[5, 4],
 有些操作符像`+=`和`*=`被用来更改已存在数组而不创建一个新的数组。
 
 ```python
->>> a = ones((2,3), dtype=int)
->>> b = random.random((2,3))
+>>> a = np.ones((2,3), dtype=int)
+>>> b = np.random.random((2,3))
 >>> a *= 3
 >>> a
 array([[3, 3, 3],
        [3, 3, 3]])
 >>> b += a
 >>> b
-array([[ 3.69092703,  3.8324276 ,  3.0114541 ],
-       [ 3.18679111,  3.3039349 ,  3.37600289]])
->>> a += b                                  # b is converted to integer type
->>> a
-array([[6, 6, 6],
-       [6, 6, 6]])
+array([[ 3.417022  ,  3.72032449,  3.00011437],
+       [ 3.30233257,  3.14675589,  3.09233859]])
+>>> a += b                  # b is not automatically converted to integer type
+Traceback (most recent call last):
+  ...
+TypeError: Cannot cast ufunc add output from dtype('float64') to dtype('int64') with casting rule 'same_kind'
 
 ```
 
-当运算的是不同类型的数组时，结果数组和更普遍和精确的已知(这种行为叫做upcast)。
+当运算的是不同类型的数组时，结果数组和更普遍和精确的已知(这种行为叫做向上转型(upcasting))。
 
 ```python
 >>> a = ones(3, dtype=int32)
@@ -344,7 +344,7 @@ array([ 0.54030231+0.84147098j, -0.84147098+0.54030231j,
 
 ```
 
-许多非数组运算，如计算数组所有元素之和，被作为ndarray类的方法实现
+许多一元操作，比如计算数组中所有元素的和，都是作为`ndarray`类的方法实现的。
 
 ```python
 >>> a = random.random((2,3))
@@ -384,7 +384,7 @@ array([[ 0,  1,  3,  6],
 
 ### 通用函数(ufunc)
 
-NumPy提供常见的数学函数如`sin`,`cos`和`exp`。在NumPy中，这些叫作“通用函数”(ufunc)。在NumPy里这些函数作用按数组的元素运算，产生一个数组作为输出。
+NumPy提供常见的数学函数如`sin`,`cos`和`exp`。在NumPy中，这些叫作“通用函数”(`ufunc`)。在NumPy里这些函数作用按数组的元素运算，产生一个数组作为输出。
 
 ```python
 >>> B = arange(3)
@@ -400,18 +400,16 @@ array([ 2.,  0.,  6.])
 
 ```
 
-更多函数
-``` python
-all, alltrue, any, apply along axis, argmax, argmin, argsort, average, bincount, ceil, clip, conj, conjugate, corrcoef, cov, cross, cumprod, cumsum, diff, dot, floor, inner, inv, lexsort, max, maximum, mean, median, min, minimum, nonzero, outer, prod, re, round, sometrue, sort, std, sum, trace, transpose, var, vdot, vectorize, where 
-```
-参见:[NumPy示例](http://scipy.org/Numpy_Example_List)
+更多参考：
+all, any, apply_along_axis, argmax, argmin, argsort, average, bincount, ceil, clip, conj, corrcoef, cov, cross, cumprod, cumsum, diff, dot, floor, inner, inv, lexsort, max, maximum, mean, median, min, minimum, nonzero, outer, prod, re, round, sort, std, sum, trace, transpose, var, vdot, vectorize, where
+
 
 ### 索引，切片和迭代
 
-**一维**数组可以被索引、切片和迭代，就像[列表](http://docs.python.org/tutorial/introduction.html#SECTION005140000000000000000)和其它Python序列。
+**一维**数组可以被索引、切片和迭代，就像[列表](https://docs.python.org/3/tutorial/introduction.html#lists)和其它Python序列。
 
 ```python
->>> a = arange(10)**3
+>>> a = np.arange(10)**3
 >>> a
 array([  0,   1,   8,  27,  64, 125, 216, 343, 512, 729])
 >>> a[2]
@@ -424,10 +422,18 @@ array([-1000,     1, -1000,    27, -1000,   125,   216,   343,   512,   729])
 >>> a[ : :-1]                                 # reversed a
 array([  729,   512,   343,   216,   125, -1000,    27, -1000,     1, -1000])
 >>> for i in a:
-...         print i**(1/3.),
+...     print(i**(1/3.))
 ...
-nan 1.0 nan 3.0 nan 5.0 6.0 7.0 8.0 9.0
-
+nan
+1.0
+nan
+3.0
+nan
+5.0
+6.0
+7.0
+8.0
+9.0
 ```
 
 **多维**数组可以每个轴有一个索引。这些索引由一个逗号分割的元组给出。
@@ -465,11 +471,11 @@ array([40, 41, 42, 43])
 
 `b[i]`中括号中的表达式被当作`i`和一系列`:`，来代表剩下的轴。NumPy也允许你使用“点”像`b[i,...]`。
 
-**点**( `…` )代表许多产生一个完整的索引元组必要的分号。如果x是秩为5的数组(即它有5个轴)，那么:
+**点**( `...` )代表许多产生一个完整的索引元组必要的分号。如果x是有5个轴数组，那么:
 
--   x[1,2,…] 等同于 x[1,2,:,:,:],
--   x[…,3] 等同于 x[:,:,:,:,3]
--   x[4,…,5,:] 等同 x[4,:,:,5,:].
+-   x[1,2,...] 等同于 x[1,2,:,:,:],
+-   x[...,3] 等同于 x[:,:,:,:,3]
+-   x[4,...,5,:] 等同 x[4,:,:,5,:].
 
 ```python
 >>> c = array( [ [[  0,  1,  2],      # a 3D array (two stacked 2D arrays)
@@ -502,17 +508,37 @@ array([[  2,  13],
 
 ```
 
-然而，如果一个人想对每个数组中元素进行运算，我们可以使用flat属性，该属性是数组元素的一个迭代器:
+然而，如果一个人想对每个数组中元素进行运算，我们可以使用`flat`属性，该属性是数组元素的一个[迭代器](https://docs.python.org/tutorial/classes.html#iterators):
 
 ```python
 >>> for element in b.flat:
-...         print element,
+...     print(element)
 ...
-0 1 2 3 10 11 12 13 20 21 22 23 30 31 32 33 40 41 42 43
-
+0
+1
+2
+3
+10
+11
+12
+13
+20
+21
+22
+23
+30
+31
+32
+33
+40
+41
+42
+43
 ```
 
-更多[], …, newaxis, ndenumerate, indices, index exp 参考[NumPy示例](http://scipy.org/Numpy_Example_List)
+
+更多参考：
+[Indexing](https://docs.scipy.org/doc/numpy/user/basics.indexing.html#basics-indexing), [Indexing](https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#arrays-indexing) (reference), [newaxis](https://docs.scipy.org/doc/numpy/reference/constants.html#numpy.newaxis), [ndenumerate](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndenumerate.html#numpy.ndenumerate), [indices](https://docs.scipy.org/doc/numpy/reference/generated/numpy.indices.html#numpy.indices)
 
 ## 形状操作
 
