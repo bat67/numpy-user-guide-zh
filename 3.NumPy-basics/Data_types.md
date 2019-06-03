@@ -1,47 +1,67 @@
 <!-- TOC -->
 
 - [数据类型](#数据类型)
-    - [数组类型和类型之间的转换](#数组类型和类型之间的转换)
-    - [数组标量](#数组标量)
-    - [扩展精度](#扩展精度)
+  - [数组类型和类型之间的转换](#数组类型和类型之间的转换)
+  - [数组标量](#数组标量)
+  - [扩展精度](#扩展精度)
 
 <!-- /TOC -->
 
 # 数据类型
 
-> 原文：[Data types](http://docs.scipy.org/doc/numpy-dev/user/basics.types.html)
+> 原文：[Data types](https://docs.scipy.org/doc/numpy/user/basics.types.html)
 
-> 另见：[数据类型对象](http://docs.scipy.org/doc/numpy-dev/reference/arrays.dtypes.html#arrays-dtypes)
+> 另见：[数据类型对象](https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html#arrays-dtypes)
 
 ## 数组类型和类型之间的转换
 
-NumPy支持的数值类型比Python更多。这一节会讲述所有可用的类型，以及如何改变数组的数据类型。
+NumPy支持的数值类型比Python多得多。这一节会讲述所有可用的类型，以及如何改变数组的数据类型。
 
-| 数据类型 | 描述 |
-| --- | --- |
-| bool_ | 以字节存储的布尔值（True 或 False） |
-| int_ | 默认的整数类型（和 C 的 long 一样，是 int64 或者 int32） |
-| intc | 和 C 的 int 相同（一般为 int64 或 int32） |
-| intp | 用于下标的整数（和 C 的 ssize_t 相同，一般为int64 或者 int32） |
-| int8 | 字节（-128 到 127） |
-| int16 | 整数（-32768 到 32767） |
-| int32 | 整数（-2147483648 到 2147483647） |
-| int64 | 整数（-9223372036854775808 到 9223372036854775807） |
-| uint8 | 无符号整数（0 到 255） |
-| uint16 | 无符号整数（0 到 65535） |
-| uint32 | 无符号整数（0 到 4294967295） |
-| uint64 | 无符号整数（0 到 18446744073709551615） |
-| float_ | float64 的简写 |
-| float16 | 半精度浮点：1位符号，5位指数，10位尾数 |
-| float32 | 单精度浮点：1位符号，8位指数，23位尾数 |
-| float64 | 双精度浮点：1位符号，11位指数，52位尾数 |
-| complex_ | complex128 的简写 |
-| complex64 | 由两个32位浮点（实部和虚部）组成的复数 |
-| complex128 | 由两个64位浮点（实部和虚部）组成的复数 |
+所支持的基本类型与C语言中的基本类型紧密相连:
 
-此外，Intel平台相关的C整数类型 `short`、`long`，`long long` 和它们的无符号版本是有定义的。
+| Numpy类型 | C中的类型 |描述 |
+| --- | --- | --- |
+| np.bool | bool | 以字节存储的布尔值（True 或 False） |
+| np.byte | signed char | 由平台定义
+| np.ubyte | unsigned char | 由平台定义
+| np.short | short | 由平台定义
+|np.ushort|unsigned short| 由平台定义
+|np.intc|int| 由平台定义
+|np.uintc|unsigned int| 由平台定义
+|np.int_|long| 由平台定义
+|np.uint|unsigned long| 由平台定义
+|np.longlong|long long| 由平台定义
+|np.ulonglong|unsigned long long| 由平台定义
+|np.half / np.float16|-|Half precision float: sign bit, 5 bits exponent, 10 bits mantissa|
+|np.single|float|Platform-defined single precision float: typically sign bit, 8 bits exponent, 23 bits mantissa|
+|np.double|double|Platform-defined double precision float: typically sign bit, 11 bits exponent, 52 bits mantissa.
+|np.longdouble|long double|Platform-defined extended-precision float
+|np.csingle|float complex|Complex number, represented by two single-precision floats (real and imaginary components)
+|np.cdouble|double complex|Complex number, represented by two double-precision floats (real and imaginary components).
+|np.clongdouble|long double complex|Complex number, represented by two extended-precision floats (real and imaginary components).
 
-NumPy数值类型是dtype对象的实例，每个都有独特的特点。一旦你导入了NumPy：
+由于其中许多具有平台相关的定义，因此提供了一组固定大小的别名:
+
+| Numpy类型 | C中的类型 |描述 |
+| --- | --- | --- |
+np.int8|int8_t|Byte (-128 to 127)
+np.int16|int16_t|Integer (-32768 to 32767)
+np.int32|int32_t|Integer (-2147483648 to 2147483647)
+np.int64|int64_t|Integer (-9223372036854775808 to 9223372036854775807)
+np.uint8|uint8_t|Unsigned integer (0 to 255)
+np.uint16|uint16_t|Unsigned integer (0 to 65535)
+np.uint32|uint32_t|Unsigned integer (0 to 4294967295)
+np.uint64|uint64_t|Unsigned integer (0 to 18446744073709551615)
+np.intp|intptr_t|Integer used for indexing, typically the same as ssize_t
+np.uintp|uintptr_t|Integer large enough to hold a pointer
+np.float32|float|-
+np.float64 / np.float_|double|Note that this matches the precision of the builtin python float.
+np.complex64|float complex|Complex number, represented by two 32-bit floats (real and imaginary components)
+np.complex128 / np.complex_|double complex|Note that this matches the precision of the builtin python complex.
+
+
+
+NumPy数值类型是`dtype`对象的实例，每个都有独特的特点。一旦导入了NumPy：
 
 ```python
 >>> import numpy as np
@@ -49,7 +69,7 @@ NumPy数值类型是dtype对象的实例，每个都有独特的特点。一旦�
 
 这些 dtype 都可以通过 `np.bool_` ， `np.float32` 以及其它的形式访问。
 
-更高级的类型不在表中给出，请见[结构化数组](http://docs.scipy.org/doc/numpy-dev/user/basics.rec.html#structured-arrays)一节。
+更高级的类型不在表中给出，请见[结构化数组](https://docs.scipy.org/doc/numpy/user/basics.rec.html#structured-arrays)一节。
 
 有5种基本的数值类型：布尔（`bool`），整数（`int`），无符号整数（`uint`），浮点（`float`）和复数。其中的数字表示类型所占的位数（即需要多少位代表内存中的一个值）。有些类型，如`int`和`intp`，依赖于平台（例如32位和64位机）有不同的位数。在与低级别的代码（如C或Fortran）交互和在原始内存中寻址时应该考虑到这些。
 
